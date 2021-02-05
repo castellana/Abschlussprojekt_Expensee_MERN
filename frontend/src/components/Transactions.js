@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const axios = require('axios').default
 
 const Transactions = () => {
-    const [data, setData] = useState(undefined) //el valor inicial le ponemos undefined
+    const [data, setData] = useState(undefined)
     useEffect(() => { 
         axios
             .get('http://localhost:5000/transactions')
@@ -24,7 +24,7 @@ const Transactions = () => {
                     <p>{transaction.category}</p>
                     <p>{transaction.date}</p>
 
-                    {/* <Link to={`/contact/${contact._id}`}> Klicke hier </Link> */}
+                    {/* <Link to={`/transactions/${transaction._id}`}> Klicke hier </Link> */}
                 </div>)
                 : "loading"}
         </>

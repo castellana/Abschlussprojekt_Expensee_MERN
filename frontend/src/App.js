@@ -6,6 +6,7 @@ import {
     Route } from "react-router-dom"
 
 import Transactions from './components/Transactions'
+import AddTransaction from './components/AddTransaction'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Router>
           <Switch>
               <Route path="/" component={Transactions} exact/>
+              <Route path="/add" component={AddTransaction} />
           </Switch>
       </Router>
     </div>

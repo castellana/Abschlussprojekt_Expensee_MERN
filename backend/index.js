@@ -3,7 +3,9 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const PORT = process.env.PORT || 5000
- 
+
+
+const transactionsRoute = require('./routes/transactionsRoute');
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.json())
@@ -19,3 +21,9 @@ mongoose.connect(process.env.dbUri,{
     .catch(err => console.log(err));
  
 app.get('/', (req, res) => res.render('index'))
+
+app.use('/transactions', transactionsRoute)
+
+app.use((req, res) => {
+    res.status(404).render('404')
+})

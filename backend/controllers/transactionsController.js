@@ -1,17 +1,26 @@
 //Wir importieren unser Model:
-const Transaction = require('../models/Transaction')
+const Transaction = require('../models/transactionModel')
 
 //route GET/transactions
 const transaction_get = (req, res) => {
-    console.log(req.params.id)
-    Transaction.findById(req.params.id)
-    .then(result => res.render('index', { transaction: result}))
+    // console.log('req',req)
+    // res.send('Get transactions') funktioniert
+    Transaction.find()
+        // .then(result => {
+        // res.render('index', { transaction: result})
+        // Enlugar de la frase anterior, ahora le decimos al server er soll die empfangenen Daten als JSON zurücksenden:
+        .then(transactions => res.json(transactions))
+        // console.log(JSON.stringify(transactions))
+        // console.log('transactions: ', transactions)
+        //  return res.status(200).json({ 
+        //      success: true,
+        //      result: transactions
+         //})
     .catch(err => console.log(err))
 }
 
-
 //add a new transaction, with POST
-const transaction_post = (req, res) => {
+const transaction_create = (req, res) => {
     console.log(req.body)
     // const newTransaction = new Transaction ({
     //     description: req.body.description,
@@ -23,18 +32,32 @@ const transaction_post = (req, res) => {
     const newTransaction = new Transaction (req.body)
     // res.status(201).end(req.body) Postmann
     newTransaction
-    .save()
-    // .then(result => res.send(result))
-    .then(result => {
-        // res.redirect('/')
-        //Man muss etwas antworten, sonst hängt der Browser/Postmann
-        //HIer geben wir den Statuscode für "Erstellt" zurück)
-        res.sendStatus(201)
+        .save()
+        // .then(result => res.send(result))
+        .then(result => {
+            // res.redirect('/')
+            //Man muss etwas antworten, sonst hängt der Browser/Postmann
+            //HIer geben wir den Statuscode für "Erstellt" zurück)
+            res.sendStatus(201)
     })
     .catch(err => console.log(err))
     // res.end()
 }
 
+
+//get details of a transaction:
+const transaction_getById = (req, res) => {
+    console.log(req.params.id)
+    res.send('Get transaction details')
+    Transaction.findById(req.params.id)
+    .then(transaction => res.json(transaction))
+    // .then(result => {
+    //     //hierres.send('Get transactions')
+    //     // res.render('index', { transaction: result})
+    //      return res.status(200).json
+    // })
+    .catch(err => console.log(err))
+}
 
 //edit a transaction: PUT
 const transaction_put = (req, res) => {
@@ -64,7 +87,7 @@ const transaction_delete = (req, res) => {
             // })
             
             //oder halt: 
-            console.log(response);
+            console.log(result);
             res.sendStatus(204)
         })
         .catch(err => console.log(err))
@@ -72,7 +95,8 @@ const transaction_delete = (req, res) => {
 
 module.exports = {
     transaction_get,
-    transaction_post,
+    transaction_create,
+    transaction_getById,
     transaction_put,
     transaction_delete
 }

@@ -6,15 +6,24 @@ const mongoose = require('mongoose');
 
 //oder simplificado so:
 const TransactionSchema = new mongoose.Schema({
-  text: {
-    type: 'string',
-    //trim: true, //Das ist um unnötige Leerspaces in der String ins Mongo zu vermeiden " hello" wird als"hello" gespeichert
-    required: true
-  },
-  amount: {
-    type: 'number',
-    required: true
-  },
+    title: {
+        type: 'string',
+        trim: true, //Das ist um unnötige Leerspaces in der String ins Mongo zu vermeiden " hello" wird als"hello" gespeichert
+        required: true
+    },
+    amount: {
+        type: 'number',
+        required: true
+    },
+    category: {
+        type: String, 
+        trim: true,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
 //   createdAt: {
 //     type: Date,
 //     default: Date.now

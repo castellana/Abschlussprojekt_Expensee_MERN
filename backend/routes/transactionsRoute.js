@@ -3,14 +3,18 @@ const router = express.Router();
 
 const transactionsController = require('../controllers/transactionsController')
 
-// router.get('/', (req, res) => res.send('Hallo'));
-//cambiamos la frase anterior, por esta:
-router
-   .get('/', transactionsController.transaction_get)
-   .post('/', transactionsController.transaction_post); //ó '/add'
+router.get('/', transactionsController.transaction_get)
+   
+router.post('/', transactionsController.transaction_create); //ó '/add'
 
-router
-   .post('/:id/edit', transactionsController.transaction_put)
-   .delete('/:id', transactionsController.transaction_delete)
+router.get('/:id', transactionsController.transaction_getById)
 
+router.post('/:id/edit', transactionsController.transaction_put)
+
+router.delete('/:id', transactionsController.transaction_delete)
+
+   //Route wo die gespeicherte Transaktionen vom user sind:
+
+//    router.route('/transactions')
+//    .get('/', )
 module.exports = router;

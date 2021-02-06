@@ -5,7 +5,7 @@ const Transaction = require('../models/transactionModel')
 const transaction_get = (req, res) => {
     // console.log('req',req)
     // res.send('Get transactions') funktioniert
-    Transaction.find()
+    Transaction.find().sort('-date').limit(20)
         // .then(result => {
         // res.render('index', { transaction: result})
         // Enlugar de la frase anterior, ahora le decimos al server er soll die empfangenen Daten als JSON zurücksenden:
@@ -18,7 +18,7 @@ const transaction_get = (req, res) => {
          //})
     .catch(err => console.log(err))
 }
-
+// collection.find().sort('-date').exec(function(err, collectionItems)
 //add a new transaction, with POST
 const transaction_create = (req, res) => {
     console.log(req.body)
@@ -48,7 +48,7 @@ const transaction_create = (req, res) => {
 //get details of a transaction:
 const transaction_getById = (req, res) => {
     console.log(req.params.id)
-    res.send('Get transaction details')
+    // res.send('Get transaction details')
     Transaction.findById(req.params.id)
     .then(transaction => res.json(transaction))
     // .then(result => {
@@ -62,13 +62,7 @@ const transaction_getById = (req, res) => {
 //edit a transaction: PUT
 const transaction_put = (req, res) => {
     console.log(req.body)
-    const updatedTransaction = {
-        description: req.body.description,
-        category: req.body.category,
-        amount: req.body.amount,
-        date: req.body.date,
-    }
-    Transaction.findByIdAndUpdate(req.params.id,  updatedTransaction)
+    Transaction.findByIdAndUpdate(req.params.id,  req.body)
     .then(result => {
         // res.redirect(`/transactions/${req.params.id}`)
         res.sendStatus(204)

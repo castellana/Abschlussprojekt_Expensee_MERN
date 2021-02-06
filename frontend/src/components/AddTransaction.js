@@ -2,8 +2,8 @@ import { useState } from 'react'
 const axios = require('axios').default
 
 const AddTransaction = () => {
-    const [inputs, setInputs] = useState ({
-        title: "", amount: "", category: "Lebensmittel", date: new Date()
+    const [inputs, setInputs] = useState ({ category: "Lebensmittel", transactionType: "Ausgabe",
+        title: "", amount: "", date: new Date()
     })
 
     const handleChange = event => {
@@ -28,6 +28,17 @@ const AddTransaction = () => {
         <>
             <h2>Neue Transaktion eingeben</h2>
             <form>
+                <select name="category" onChange={e => handleChange(e)} value={inputs}>
+                    <option value="Lebensmittel">Lebensmittel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Wohnen">Wohnen</option>
+                    <option value="Mobilität">Mobilität</option>
+                    <option value="Freizeit">Freizeit</option>
+                </select>
+                <select name="transactionType" onChange={e => handleChange(e)} value={inputs}>
+                    <option value="Ausgabe">Ausgabe</option>
+                    <option value="Einnahme">Einnahme</option>
+                </select>
                 <input 
                     type="text" 
                     placeholder="Name der Ausgabe" 
@@ -46,15 +57,6 @@ const AddTransaction = () => {
                     name="date" 
                     value={inputs.date} 
                     onChange={e => handleChange(e)}/>
-            
-                <select name="category" onChange={e => handleChange(e)} value={inputs}>
-                    <option value="Lebensmittel">Lebensmittel</option>
-                    <option value="Shopping">Shopping</option>
-                    <option value="Wohnen">Wohnen</option>
-                    <option value="Mobilität">Mobilität</option>
-                    <option value="Freizeit">Freizeit</option>
-                </select>
-
                 <input 
                     type="button" 
                     onClick={handleSubmit} 

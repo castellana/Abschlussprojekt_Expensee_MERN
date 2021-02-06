@@ -7,6 +7,7 @@ import {
 
 import Transactions from './components/Transactions'
 import AddTransaction from './components/AddTransaction'
+import SingleTransaction from './components/SingleTransaction'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Switch>
               <Route path="/" component={Transactions} exact/>
               <Route path="/add" component={AddTransaction} />
+              <Route path="/transactions/:id" component={SingleTransaction}/>
           </Switch>
       </Router>
     </div>

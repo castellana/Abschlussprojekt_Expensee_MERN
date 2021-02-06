@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 const axios = require('axios').default
 
 const Transactions = () => {
@@ -16,17 +16,18 @@ const Transactions = () => {
     return ( 
         <>
             <h2>Hier sind deine letzte Geldtransaktionen</h2>
-            {/* {JSON.stringify(data)} probamos si nos da algo */}
             {data !== undefined ?
-                data.map(transaction => <div key={transaction._id}>
+                data.map(transaction => <Link to={`/transactions/${transaction._id}`}> <div key={transaction._id}>
                     <h3>{transaction.title}</h3>
                     <p>{transaction.amount}</p>
                     <p>{transaction.category}</p>
                     <p>{transaction.date}</p>
-
-                    {/* <Link to={`/transactions/${transaction._id}`}> Klicke hier </Link> */}
-                </div>)
+                 
+                    {/* <Link to={`/transactions/${transaction._id}`}>KLicke hier zum editieren oder löschen </Link> */}
+                </div>  
+                 </Link>)
                 : "loading"}
+                <Link to='/add'>Neue Transaktion eingeben</Link>
         </>
      );
 }

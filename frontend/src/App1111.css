@@ -1,0 +1,134 @@
+:root {
+  --header1: 3rem;
+  --header2: 1.7rem;
+  --header3: 1.2rem;
+  --text: 1.5rem;
+  --background-color: #2b2d5b;
+  --primary-color: #fff;
+  --secondary-color: #232450;
+  --special1-color: #906272;
+  --special2-color: #f4f4f4;
+  --special3-color: #252422;
+  --special4-color: #252422;
+  scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background: rgb(233, 233, 233);
+}
+
+body {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-size: var(--header1);
+  font-weight: 300;
+  line-height: 90%;
+  color: #fff;
+}
+
+h2 {
+  font-size: var(--header2);
+  font-weight: 500;
+  line-height: 90%;
+  color: #fff;
+}
+
+h3 {
+  font-size: var(--header3);
+  color: #fff;
+  font-weight: 300;
+}
+
+li,
+button,
+label,
+input,
+a,
+p {
+  font-size: var(--text);
+}
+h2 {
+  font-size: var(--header2);
+}
+h3 {
+  font-size: var(--header3);
+}
+h4,
+h5 {
+  font-size: var(--header4);
+}
+
+ul {
+  list-style: none;
+}
+a {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+button,
+button:active,
+button:focus {
+  width: 100%;
+  background-color: #2b2d5b;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  /* margin: 4px 2px; */
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+  outline: none;
+  border: 0;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+button:hover {
+  background: lime;
+  color: #fff;
+}
+
+/* Statusleiste */
+.status-phone {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  background: red;
+  width: 100%;
+  z-index: 333;
+  /* padding: 0 0.8rem;
+  height: 2.6rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; */
+}
+
+@media (max-width: 768px) {
+}

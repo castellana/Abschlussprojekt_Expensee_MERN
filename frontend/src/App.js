@@ -16,8 +16,8 @@ import BottomNavigation from './components/BottomNavigation';
 // Import pages
 import HomeStart from './pages/HomeStart';
 
-import AddTransaction from './components/AddTransaction';
-import SingleTransaction from './components/SingleTransaction';
+
+
 
 function App() {
   return (
@@ -26,8 +26,8 @@ function App() {
       <Router>
           <Switch>
               <Route path="/" component={Transactions} exact/>
-              <Route path="/add" component={AddTransaction} />
-              <Route path="/transactions/:id" component={SingleTransaction}/>
+              
+
               <Route path="/monthly" component={CurrentMonth} exact/>
               <Route path="/monthly/category" component={MonthlyCategories} />
           </Switch>

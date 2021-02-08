@@ -24,20 +24,17 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Router>
-          <Switch>
-              <Route path="/" component={Transactions} exact/>
-              
 
-              <Route path="/monthly" component={CurrentMonth} exact/>
-              <Route path="/monthly/category" component={MonthlyCategories} />
-          </Switch>
         {/* <StatusPhone /> */}
-
         <Navbar />
         <Switch>
-          <Route path="/" exact>
-            <HomeStart />
-          </Route>
+            <Route path="/" component={Transactions} exact/>
+            <Route path="/" exact>
+                <HomeStart />
+            </Route>
+            <Route path="/monthly" component={CurrentMonth} exact/>
+            <Route path="/monthly/category" component={MonthlyCategories} />
+
           <Route path="/add" component={AddTransaction} />
           <Route path="/transactions/:id" component={SingleTransaction} />
         </Switch>

@@ -38,7 +38,7 @@ passport.use(new GoogleStrategy({
                     })
                     newUser.save()
                         .then(user => {
-                            // console.log('User created', user);
+                             console.log('User created', user);
                             done(null, user)
                         })
                 }

@@ -16,6 +16,7 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-openid-connect": "^2.2.1",
+    "google-auth-library": "^6.1.6",
     "mongoose": "^5.11.15",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"

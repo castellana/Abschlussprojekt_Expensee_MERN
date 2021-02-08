@@ -1,35 +1,37 @@
-import { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
-const axios = require('axios').default
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import TransactionItem from './TransactionItem';
+
+const axios = require('axios').default;
 
 const Transactions = () => {
-    const [data, setData] = useState(undefined)
-    useEffect(() => { 
-        axios
-            .get('http://localhost:5000/transactions')
-            .then(transactions => {
-                console.log(transactions)
-                setData(transactions.data)
-            })
-            .catch(err => console.log(err))
-    }, [])
-    return ( 
-        <>
-            <h2>Hier sind deine letzte Geldtransaktionen</h2>
-            {data !== undefined ?
-                data.map(transaction => <Link to={`/transactions/${transaction._id}`}> <div key={transaction._id}>
-                    <h3>{transaction.title}</h3>
-                    <p>{transaction.amount}</p>
-                    <p>{transaction.category}</p>
-                    <p>{transaction.date}</p>
-                 
-                    {/* <Link to={`/transactions/${transaction._id}`}>KLicke hier zum editieren oder löschen </Link> */}
-                </div>  
-                 </Link>)
-                : "loading"}
-                <Link to='/add'>Neue Transaktion eingeben</Link>
-        </>
-     );
-}
- 
+  const [data, setData] = useState(undefined);
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/transactions')
+      .then((transactions) => {
+        setData(transactions.data);
+        console.log(transactions.data);
+        console.log('hallo');
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  return (
+    <div className="container">
+      <div className="transaction-list">
+        {data !== undefined
+          ? data.map((transaction, index) => (
+              <TransactionItem key={index} transaction={transaction} />
+            ))
+          : 'loading'}
+        <div className="more-action">
+          <button>
+            <Link to="/add">Neue Transaktion eingeben</Link>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Transactions;

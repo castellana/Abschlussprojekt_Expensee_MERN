@@ -13,8 +13,11 @@ router.put('/:id/', transactionsController.transaction_put)
 
 router.delete('/:id', transactionsController.transaction_delete)
 
-   //Route wo die gespeicherte Transaktionen vom user sind:
+router.get('/monthly/current', transactionsController.currentMonth)
 
-//    router.route('/transactions')
-//    .get('/', )
+router.get('/monthly/category', transactionsController.groupCategory)
+
+
+
 module.exports = router;
+

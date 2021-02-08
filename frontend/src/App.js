@@ -8,6 +8,8 @@ import {
 import Transactions from './components/Transactions'
 import AddTransaction from './components/AddTransaction'
 import SingleTransaction from './components/SingleTransaction'
+import CurrentMonth from './components/CurrentMonth'
+import MonthlyCategories from './components/MonthlyCategories'
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
               <Route path="/" component={Transactions} exact/>
               <Route path="/add" component={AddTransaction} />
               <Route path="/transactions/:id" component={SingleTransaction}/>
+              <Route path="/monthly" component={CurrentMonth} exact/>
+              <Route path="/monthly/category" component={MonthlyCategories} />
           </Switch>
       </Router>
     </div>

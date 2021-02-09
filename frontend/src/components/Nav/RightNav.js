@@ -23,7 +23,7 @@ const RightNav = (props) => {
           <li>
             <h2>
               <NavLink
-                /* exact */
+                exact
                 to="/"
                 onClick={() => setOpen(!open)}
                 activeClassName="selected"
@@ -57,7 +57,7 @@ const RightNav = (props) => {
           <li>
             <h2>
               <NavLink
-                to="/login"
+                to="/"
                 onClick={() => setOpen(!open)}
                 activeClassName="selected"
               >

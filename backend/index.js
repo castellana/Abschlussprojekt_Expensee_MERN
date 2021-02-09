@@ -51,4 +51,11 @@ app.use('/transactions', transactionsRoute)
 
 app.use('/auth', authRoutes)
 app.use('/profile', profileRoutes)
+app.get('/profile', authRoutes, (req, res) => {
+    
+    // res.render('profile')
+    console.log("Profile:", req);
+    res.render('profile', {date: `${date} ` ,title: "profile", data: req.user})
+    res.end()
+})
 

@@ -4,16 +4,23 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // GLobal Styled
 import GlobalStyle from './components/GlobalStyle';
 
+import Transactions from './components/Transactions'
+import AddTransaction from './components/AddTransaction'
+import SingleTransaction from './components/SingleTransaction'
+import CurrentMonth from './components/CurrentMonth'
+import MonthlyCategories from './components/MonthlyCategories'
 // import StatusPhone from './components/StatusPhone';
 import Navbar from './components/Nav/Navbar';
 import BottomNavigation from './components/BottomNavigation';
 
 // Import pages
 import HomeStart from './pages/HomeStart';
-import AddTransaction from './components/AddTransaction';
-import SingleTransaction from './components/SingleTransaction';
-import Login from './components/Login';
+// import Login from './components/Login';
 // import React, { useState } from 'react';
+// import Home from './Home';
+import Login from './components/Login';
+
+
 
 
 function App() {
@@ -26,21 +33,22 @@ function App() {
 
      
       <Router>
+
         {/* <StatusPhone /> */}
         <Navbar />
         <Switch>
-        <Route path="/Login"  exact>
-           
-            <Login />
-          </Route>
-  
-          <Route path="/"  >
-         
-            <HomeStart />
-          </Route>
-          <Route  path="/add" component={AddTransaction} />
-
+        <Route path="/" exact>
+                <Login />
+            </Route>
           
+            <Route path="/Transactions" component={Transactions} exact />
+            <Route path="/HomeStart" >
+                <HomeStart />
+            </Route>
+            <Route path="/monthly" component={CurrentMonth}  />
+            <Route path="/monthly/category" component={MonthlyCategories} />
+
+          <Route path="/add" component={AddTransaction} />
           <Route path="/transactions/:id" component={SingleTransaction} />
         </Switch>
         <BottomNavigation />

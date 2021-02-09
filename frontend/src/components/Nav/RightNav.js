@@ -1,13 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-
+// import Login from './components/Login';
 const RightNav = (props) => {
   const { open, setOpen } = props;
   return (
     <NavStyle>
       <Ul open={open}>
         <ul className="menu">
+      {/*   <li>
+            <h2>
+              <NavLink
+                exact
+                to="/Login"
+                onClick={() => setOpen(!open)}
+                activeClassName="selected"
+              >
+                Login
+              </NavLink>
+            </h2>
+          </li> */}
           <li>
             <h2>
               <NavLink
@@ -45,7 +57,7 @@ const RightNav = (props) => {
           <li>
             <h2>
               <NavLink
-                to="/logout"
+                to="/"
                 onClick={() => setOpen(!open)}
                 activeClassName="selected"
               >

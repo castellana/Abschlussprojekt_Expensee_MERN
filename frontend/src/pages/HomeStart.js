@@ -1,21 +1,12 @@
 import Transactions from '../components/Transactions';
 import HomeIntro from '../components/HomeIntro';
-import StartStats from '../components/StartStats';
-
+//import Navbar from '../components/Nav/Navbar';
 const HomeStart = () => {
   return (
-    <section
-      className="home-start"
-      // style={{
-      //   backgroundImage: `url(${
-      //     process.env.PUBLIC_URL + '/images/bg-deco.svg'
-      //   }) `,
-      // }}
-    >
-      <StartStats />
-      <div className="start-stats">
-        <HomeIntro />
-      </div>
+    <section className="home-start">
+      {/*  <Navbar  /> */}
+      <HomeIntro />
+
       <div className="transactions">
         <Transactions />
       </div>

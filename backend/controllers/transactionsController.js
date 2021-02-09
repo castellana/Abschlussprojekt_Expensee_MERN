@@ -60,35 +60,66 @@ const transaction_delete = (req, res) => {
 }
 
 
+// const currentMonth = (req, res) => {
+//     Transaction.aggregate([
+//         {$facet: {
+//                     sortedByCategory: [
+//                         {$match:  
+//                             {$expr: 
+//                                 {$eq: [{ $month: {"$toDate":"$date"}}, {$month: new Date()}]}
+//                             }
+//                         },
+//                         {$group: {
+//                                 _id: "$category", 
+//                                 totalCategory: {'$sum': '$amount'},
+//                                 }
+//                         } 
+//                     ],
+//                     totalAusgabeEinahme: [
+//                         {$match:  
+//                             {$expr: 
+//                             {$eq: [{ $month: {"$toDate":"$date"}}, {$month: new Date()}]}
+//                             }
+//                         },
+//                         {$group : { _id : "$transactionType", total:  {$sum: "$amount"} } }
+//                     ]
+        
+//                 }
+//             },        
+//     ])
+//     .then(result => {
+//         console.log(result);
+//         res.json(result)
+//     })
+//     .catch(err => console.log(err))
+// }
+
 const currentMonth = (req, res) => {
     Transaction.aggregate([
-        { $match:  
+        {$match:  
             {$expr: 
-               {$eq: [{ $month: {"$toDate":"$date"}}, {$month: new Date()}]}
+                {$eq: [{ $month: {"$toDate":"$date"}}, {$month: new Date()}]}
             }
         },
-        {$group: {
-            _id: "$category", 
-            total: {'$sum': '$amount'}
+
+        {$group : 
+            { _id : { 
+                    transactionType: "$transactionType", 
+                    category: "$category" },
+                    count:  {$sum: "$amount"}
             }
-        }
-    ])
-    // Transaction.aggregate([
-    //     {$project: {
-    //         // _id : 1,
-    //         'month': { '$month': {'$toDate': '$date'}}, 
-    //         'year': {'$year': {'$toDate': '$date'}}, 
-    //         'title': '$title', 
-    //         'category': '$category', 
-    //         'amount': '$amount', 
-    //         'transactionType': '$transactionType'
-    //     }}, 
-    //     {$group : {
-    //         _id : {month: "$month", year: "$year"},
-    //         total : {$sum : "$amount"}
-    //     }},
-    //     {$match : {"_id.year" : 2021, "_id.month": 01}}
-    // ])
+        },
+
+        {$group: 
+            { _id: "$_id.transactionType", 
+            total: {$sum: "$count"},
+            totalCategory: {
+                        $push: {
+                                sum: '$count',
+                                category: "$_id.category"},
+                             }, 
+            }}
+    ])    
 
     .then(result => {
         console.log(result);
@@ -97,48 +128,12 @@ const currentMonth = (req, res) => {
     .catch(err => console.log(err))
 }
 
-
-const groupCategory = (req, res) => {
-    Transaction.aggregate([
-        {$project: {
-            // 'month': { '$month': {'$toDate': '$date'}}, 
-            // 'year': {'$year': {'$toDate': '$date'}}, 
-            'date' : '$date',
-            'title': '$title', 
-            'category': '$category', 
-            'amount': '$amount', 
-            'transactionType': '$transactionType'
-          }
-        }, 
-        //{$match{'year': 2021, 
-        // 'month': 01}
-        {$match: 
-            {$expr: 
-                {$eq: [{ $month: {"$toDate": "$date"}}, {$month: new Date()} ]}
-            }},
-        {$group: {
-            _id: "$category", 
-            total: {'$sum': '$amount'}
-            }
-        }
-    ])
-
-    // .then(result => {
-    //     console.log(result);
-    //     res.sendStatus(204)
-    // })
-    .then(transaction => res.json(transaction))
-    .catch(err => console.log(err))
-}
-
-
 module.exports = {
     transaction_get,
     transaction_create,
     transaction_getById,
     transaction_put,
     transaction_delete,
-    currentMonth,
-    groupCategory
+    currentMonth
 }
 

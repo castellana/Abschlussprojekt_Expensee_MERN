@@ -8,7 +8,6 @@ import Transactions from './components/Transactions'
 import AddTransaction from './components/AddTransaction'
 import SingleTransaction from './components/SingleTransaction'
 import CurrentMonth from './components/CurrentMonth'
-import MonthlyCategories from './components/MonthlyCategories'
 // import StatusPhone from './components/StatusPhone';
 import Navbar from './components/Nav/Navbar';
 import BottomNavigation from './components/BottomNavigation';
@@ -33,7 +32,6 @@ function App() {
                 <HomeStart />
             </Route>
             <Route path="/monthly" component={CurrentMonth} exact/>
-            <Route path="/monthly/category" component={MonthlyCategories} />
 
           <Route path="/add" component={AddTransaction} />
           <Route path="/transactions/:id" component={SingleTransaction} />

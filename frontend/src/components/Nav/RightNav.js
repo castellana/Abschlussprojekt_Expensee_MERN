@@ -8,7 +8,7 @@ const RightNav = (props) => {
     <NavStyle>
       <Ul open={open}>
         <ul className="menu">
-      {/*   <li>
+          {/*   <li>
             <h2>
               <NavLink
                 exact
@@ -24,7 +24,7 @@ const RightNav = (props) => {
             <h2>
               <NavLink
                 exact
-                to="/"
+                to="/HomeStart"
                 onClick={() => setOpen(!open)}
                 activeClassName="selected"
               >

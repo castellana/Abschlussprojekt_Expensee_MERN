@@ -106,7 +106,9 @@ const currentMonth = (req, res) => {
             { _id : { 
                     transactionType: "$transactionType", 
                     category: "$category" },
-                    count:  {$sum: "$amount"}
+                    count:  {$sum: "$amount"},
+                    // type1: {$transactionType: "$Einnahme"},
+                    // type2: {$transactionType: "$Ausgabe"}
             }
         },
 
@@ -117,8 +119,14 @@ const currentMonth = (req, res) => {
                         $push: {
                                 sum: '$count',
                                 category: "$_id.category"},
-                             }, 
-            }}
+                             } 
+            //{
+            // $addFields : {
+            //     sent : {$subtract: [ "$maxValue", "$minValue" ]}
+            // }
+        //}    
+            }},
+        // { $subtract: [ total, $count ] }    
     ])    
 
     .then(result => {

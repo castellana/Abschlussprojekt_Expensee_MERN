@@ -16,7 +16,7 @@ const BottomNavigation = () => {
     //   }}
     >
       <div className="app-bar-bottom">
-        <NavLink to="/">
+        <NavLink to="/HomeStart">
           <div className="home-btn iconhover">
             <img src={homeBtn} alt="home" />
             <h3>Home</h3>

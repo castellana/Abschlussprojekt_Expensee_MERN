@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 const axios = require('axios').default
 
+
 const EditTransaction = () => {
     const { id } = useParams()
     const [data, setData] = useState(undefined) 
@@ -26,12 +27,12 @@ const EditTransaction = () => {
     };
 
 
-    const handleEdit = () => {
+    const handleEdit = (e) => {
+        e.preventDefault();
         axios
             .put(`http://localhost:5000/transactions/${id}`, data)
             // .then(response => console.log(response))
-            //   .then((result) => (window.location.href = `/transactions/${id}`))
-            .then(result => window.location.href = `transactions/${id}/edited`)
+            .then((result) => (window.location.href = `/transactions/${id}/edited`))
             .catch(err => console.log(err))   
     }
 
@@ -88,10 +89,12 @@ const EditTransaction = () => {
                     <button>
                         <input type="button" onClick={handleEdit} value="Edit" />
                     </button>
-                    {/* <Link to={`/Contacts/${id}/edit`}>Edit</Link> */}
+ 
+
                 </form>
             ): 
         'Loading'}
+
     </section>
     );
 }

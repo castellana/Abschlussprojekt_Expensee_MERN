@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import Select from 'react-select';
-import DropDown from './DropDown'
+
 
 const axios = require('axios').default;
 // const dropdownOptions = [Einkommen, Lebensmittel, Shopping, Wohnen, Mobilität, Freizeit]
@@ -24,12 +24,13 @@ const AddTransaction = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // console.log('inputs :', inputs);
+    e.preventDefault();
     axios
       .post('http://localhost:5000/transactions', inputs)
-      .then((response) => console.log('response: ', response))
-      // .then(response => window.location.href = "/")
+    //   .then((response) => console.log('response: ', response))
+      .then(response => window.location.href = '/transactions')
       .catch((err) => console.log(err));
   };
 

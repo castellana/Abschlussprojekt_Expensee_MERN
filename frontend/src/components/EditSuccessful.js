@@ -17,18 +17,9 @@ const EditSuccessful = () => {
             .catch((err) => console.log(err));
     }, [id]);
 
-    // const handleChange = (event) => {
-    //     setData((previous) => {
-    //         return {
-    //         ...previous,
-    //         [event.target.name]: event.target.value,
-    //         };
-    //     });
-    // };
-
     return ( 
         <section>
-            <h2>Erfolgreich eingetragen</h2>
+            <h2>Erfolgreich eingetragen!</h2>
             {data !== undefined ? 
                 <div>
                     <p>{data.category}</p>

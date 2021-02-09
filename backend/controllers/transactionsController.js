@@ -40,7 +40,7 @@ const transaction_getById = (req, res) => {
 //edit a transaction: PUT
 const transaction_put = (req, res) => {
     console.log(req.body)
-    Transaction.findByIdAndUpdate(req.params.id,  req.body)
+    Transaction.findByIdAndUpdate(req.params.id, req.body)
         .then(result => {
             // res.redirect(`/transactions/${req.params.id}`)
             res.sendStatus(204)

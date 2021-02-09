@@ -15,8 +15,6 @@ router.delete('/:id', transactionsController.transaction_delete)
 
 router.get('/monthly/current', transactionsController.currentMonth)
 
-router.get('/monthly/category', transactionsController.groupCategory)
-
 
 
 module.exports = router;

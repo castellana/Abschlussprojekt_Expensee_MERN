@@ -22,7 +22,7 @@ const AddTransaction = () => {
   };
 
   const handleSubmit = () => {
-    console.log('inputs :', inputs);
+    // console.log('inputs :', inputs);
     axios
       .post('http://localhost:5000/transactions', inputs)
       .then((response) => console.log('response: ', response))

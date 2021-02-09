@@ -26,7 +26,6 @@ const StyledBurger = styled.div`
   z-index: 33;
   display: none;
   border-radius: 3px;
-  background: #b6b6b6;
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-around;

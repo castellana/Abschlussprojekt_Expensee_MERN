@@ -26,7 +26,7 @@ const Transactions = () => {
           : 'loading'}
         <div className="more-action">
           <button>
-            <Link to="/add">Neue Transaktion eingeben</Link>
+            <Link to="/add">mehr Transaktionen anzeigen</Link>
           </button>
         </div>
       </div>

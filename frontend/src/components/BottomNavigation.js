@@ -1,28 +1,40 @@
-import homeBtn from './img/home-button.svg';
-import chartsBtn from './img/icon-charts.svg';
-import incomeBtn from './img/icon-einkommen.svg';
+// import homeBtn from './img/home-button.svg';
+import homeBtn from './img/home.svg';
+import chartsBtn from './img/charts.svg';
+import cross from './img/cross.svg';
+
+import { NavLink } from 'react-router-dom';
 
 const BottomNavigation = () => {
   return (
     <footer
-      className="bottom-nav"
-      //   style={{
-      //     backgroundImage: `url(${process.env.PUBLIC_URL + '/images/boo1.svg'}) `,
-      //     backgroundRepeat: 'no-repeat',
-      //     backgroundPosition: '50% 50%',
-      //   }}
+
+    //   style={{
+    //     backgroundImage: `url(${process.env.PUBLIC_URL + '/images/boo1.svg'}) `,
+    //     backgroundRepeat: 'no-repeat',
+    //     backgroundPosition: '50% 50%',
+    //   }}
     >
-      <div className="einkommen-btn">
-        <img src={incomeBtn} alt="home" />
-        <h3>Edit</h3>
-      </div>
-      <div className="home-btn">
-        <img src={homeBtn} alt="home" />
-        <h3>Home</h3>
-      </div>
-      <div className="charts-button">
-        <img src={chartsBtn} alt="home" />
-        <h3>Charts</h3>
+      <div className="app-bar-bottom">
+        <NavLink to="/">
+          <div className="home-btn iconhover">
+            <img src={homeBtn} alt="home" />
+            <h3>Home</h3>
+          </div>
+        </NavLink>
+        <NavLink to="/add">
+          <div className="btn">
+            <div className="btn-content">
+              <img src={cross} alt="cross icon" />
+            </div>
+          </div>
+        </NavLink>
+        <NavLink to="/charts">
+          <div className="charts-btn iconhover">
+            <img src={chartsBtn} alt="charts icon" />
+            <h3>Charts</h3>
+          </div>
+        </NavLink>
       </div>
     </footer>
   );

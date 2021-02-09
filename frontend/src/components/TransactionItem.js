@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import red from './img/red.svg';
-import green from './img/green.svg';
+import blue from './img/blue.svg';
 
 const TransactionItem = ({ transaction }) => {
-  console.log(transaction);
-  console.log('asdadasd');
+  // console.log(transaction);
+
   const color = transaction.transactionType;
   return (
     <div className="transactionItem-wrapper">
       <div className="icon">
         {color === 'Einnahme' ? (
-          <img src={green} alt="green" />
+          <img src={blue} alt="green" />
         ) : (
           <img src={red} alt="red" />
         )}

@@ -10,6 +10,8 @@ import BottomNavigation from './components/BottomNavigation';
 
 // Import pages
 import HomeStart from './pages/HomeStart';
+import Charts from './pages/Charts';
+import TestPage from './pages/TestPage';
 
 import AddTransaction from './components/AddTransaction';
 import SingleTransaction from './components/SingleTransaction';
@@ -20,11 +22,16 @@ function App() {
       <GlobalStyle />
       <Router>
         {/* <StatusPhone /> */}
-
         <Navbar />
         <Switch>
           <Route path="/" exact>
             <HomeStart />
+          </Route>
+          <Route path="/charts">
+            <Charts />
+          </Route>
+          <Route path="/test">
+            <TestPage />
           </Route>
           <Route path="/add" component={AddTransaction} />
           <Route path="/transactions/:id" component={SingleTransaction} />

@@ -53,6 +53,17 @@ const RightNav = (props) => {
               </NavLink>
             </h2>
           </li>
+          <li>
+            <h2>
+              <NavLink
+                to="/test"
+                onClick={() => setOpen(!open)}
+                activeClassName="selected"
+              >
+                TEST
+              </NavLink>
+            </h2>
+          </li>
         </ul>
         {/* <div className="dark-mode">
           <button>dark</button>
@@ -66,24 +77,23 @@ const NavStyle = styled.div`
   width: 50%;
   z-index: 30;
   .selected {
-    color: #9cf5a6;
+    color: #fff;
     text-decoration-line: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
   }
   h2 {
     position: relative;
-    background: #0d757d;
     width: 100%;
     font-size: 3rem;
     font-weight: normal;
     text-align: center;
-    color: rgba(0, 0, 0, 0.4);
+    color: #fff;
     margin: 0rem auto 0;
   }
   h2 > a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.4);
+    color: #fff;
     z-index: 1;
   }
 
@@ -91,10 +101,10 @@ const NavStyle = styled.div`
     content: '';
     position: absolute;
     width: 100%;
-    height: 3px;
+    height: 1px;
     bottom: 0;
     left: 0;
-    background: #9cf5a6;
+    background: #fff;
     visibility: hidden;
     border-radius: 5px;
     transform: scaleX(0);
@@ -106,7 +116,7 @@ const NavStyle = styled.div`
     transform: scaleX(1);
   }
   a:hover {
-    color: #9cf5a6;
+    color: #fff;
   }
   @media (max-width: 768px) {
     background: lime;
@@ -124,7 +134,7 @@ const NavStyle = styled.div`
   }
   // Large devices (desktops, less than 1200px)
   @media (min-width: 1199.98px) {
-    background: yellow;
+    background: #078a1d;
     width: 70%;
   }
   // Large devices (desktops, less than 1200px)
@@ -143,7 +153,6 @@ const Ul = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: green;
     padding: 2rem;
   }
   .dark-mode {
@@ -168,9 +177,11 @@ const Ul = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    background-color: #0d2538;
+    background-color: #2b2d5b;
+    box-shadow: 10px 8px 16px 0 rgba(0, 0, 0, 0.2),
+      10px 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: fixed;
-    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-110%)')};
     top: 0;
     left: 0;
     height: 100vh;
@@ -180,15 +191,13 @@ const Ul = styled.div`
     h2 > a:before {
       top: 30px;
       left: 0;
-      background: #9cf5a6;
     }
     .menu {
       flex: 1 1 30%;
       display: flex;
       justify-content: flex-start;
-      align-items: center;
+      align-items: flex-start;
       flex-direction: column;
-      background: red;
       width: 80%;
     }
     li {
@@ -196,7 +205,7 @@ const Ul = styled.div`
       padding: 1.3rem 0rem;
     }
     a {
-      font-size: 3rem;
+      font-size: 1.4rem;
     }
 
     .dark-mode {

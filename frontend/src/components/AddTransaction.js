@@ -28,11 +28,11 @@ const AddTransaction = () => {
     // console.log('inputs :', inputs);
     e.preventDefault();
     axios
-      .post('http://localhost:5000/transactions', inputs)
+        .post('http://localhost:5000/transactions', inputs)
     //   .then((response) => console.log('response: ', response))
-      .then(response => window.location.href = '/transactions')
-      .catch((err) => console.log(err));
-  };
+        .then(response => window.location.href = '/transactions/added')
+        .catch((err) => console.log(err));
+    };
 
   return (
     <section className="aktion-wrapper">

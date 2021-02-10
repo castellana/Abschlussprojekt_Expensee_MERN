@@ -10,9 +10,9 @@ const DonutChart = ({ einnahmen, ausgaben }) => {
       {
         label: 'Hallo',
         data: werte,
-        backgroundColor: ['rgb(0, 153, 255)', 'rgb(255, 0, 55)'],
-        borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
-        borderWidth: 1,
+        backgroundColor: ['#4d76e6', '#F7313D'],
+        borderColor: ['#4d76e6', '#F7313D'],
+        borderWidth: 4,
       },
     ],
   };

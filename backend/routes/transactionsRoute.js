@@ -9,7 +9,8 @@ router.post('/', transactionsController.transaction_create); //ó '/add'
 
 router.get('/:id', transactionsController.transaction_getById)
 
-router.put('/:id/', transactionsController.transaction_put)
+router.put('/:id', transactionsController.transaction_put)
+// router.put('/:id/edited', transactionsController.transaction_put)
 
 router.delete('/:id', transactionsController.transaction_delete)
 

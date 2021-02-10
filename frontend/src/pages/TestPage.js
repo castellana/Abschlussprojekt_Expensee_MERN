@@ -1,13 +1,11 @@
-// import SuccessMessage from '../components/SuccessMessage';
+import SuccessMessage from '../components/SuccessMessage';
 import Berechnungstest from '../components/Berechnungstest';
-import DonutChart from '../components/DonutChart';
 
 const TestPage = () => {
   return (
     <section className="test-start">
-      {/* <SuccessMessage /> */}
+      <SuccessMessage />
       <Berechnungstest />
-      <DonutChart />
     </section>
   );
 };

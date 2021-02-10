@@ -10,7 +10,6 @@ import SingleTransaction from './components/SingleTransaction';
 import CurrentMonth from './components/CurrentMonth';
 import EditTransaction from './components/EditTransaction'
 import EditSuccessful from './components/EditSuccessful'
-// import AddedSuccessful from './components/AddedSuccessful'
 
 // import StatusPhone from './components/StatusPhone';
 import Navbar from './components/Nav/Navbar';
@@ -19,7 +18,7 @@ import BottomNavigation from './components/BottomNavigation';
 // Import pages
 import HomeStart from './pages/HomeStart';
 import Charts from './pages/Charts';
-import TestPage from './pages/TestPage';
+// import TestPage from './pages/TestPage';
 // import Login from './components/Login';
 // import React, { useState } from 'react';
 // import Home from './Home';
@@ -30,7 +29,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
 
-      <Router>
+        <Router>
         {/* <StatusPhone /> */}
             <Navbar />
 
@@ -49,13 +48,12 @@ function App() {
                     <Charts />
                 </Route>
 
-                <Route path="/test">
-                    <TestPage />
-                </Route>
+            {/* <Route path="/test">
+                        <TestPage />
+                    </Route> */}
 
                 <Route path="/monthly" component={CurrentMonth} exact />
                 <Route path="/add" component={AddTransaction} />
-                {/* <Route path="/transactions/:id/added" component={AddedSuccessful} exact/> */}
                 <Route path="/transactions/:id" component={SingleTransaction} exact/>
                 <Route path="/transactions/:id/edit" component={EditTransaction} exact />
                 <Route path="/transactions/:id/edited" component={EditSuccessful} exact />

@@ -59,13 +59,13 @@ const RightNav = (props) => {
               <NavLink
                 to="/"
                 onClick={() => setOpen(!open)}
-                activeClassName="selected"
+                // activeClassName="selected"
               >
                 Logout
               </NavLink>
             </h2>
           </li>
-          <li>
+          {/* <li>
             <h2>
               <NavLink
                 to="/test"
@@ -75,7 +75,7 @@ const RightNav = (props) => {
                 TEST
               </NavLink>
             </h2>
-          </li>
+          </li> */}
         </ul>
         {/* <div className="dark-mode">
           <button>dark</button>

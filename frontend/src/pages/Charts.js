@@ -1,56 +1,80 @@
+import { useEffect, useState } from 'react';
+
 import ChartData from '../components/ChartData';
-import ChartBalken from '../components/ChartBalken';
-// import KategorieBox from '../components/KategorieBox';
-import KategorieItem from '../components/KategorieItem';
 
-import Toggle from '../components/Toggle';
+import DonutChart from '../components/DonutChart';
 
-const Charts = () => {
+// import LineChart from '../components/LineChart';
+
+const axios = require('axios').default;
+
+const CurrentTransactions = () => {
+  const [data1, setData1] = useState(undefined);
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/transactions/monthly/current')
+
+      .then((transactions) => {
+        console.log('transactions.data: ', transactions.data);
+        setData1(transactions.data);
+        // console.log("transactions.data[0] :", transactions.data[0]);
+        // console.log("transactions.data[1] :", transactions.data[1]);
+        // console.log(transactions.data[0].totalCategory);
+        // console.log("_id :", transactions.data[0]._id)
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(data1);
+  const einnahmen = [];
+  const ausgaben = [];
+  const test1 =
+    data1 !== undefined
+      ? data1.map((x) =>
+          x._id === 'Einnahme'
+            ? einnahmen.push(x.total)
+            : ausgaben.push(x.total)
+        )
+      : 'loading';
+
+  console.log(test1);
+  console.log('EINNAHMEN');
+  console.log(einnahmen);
+  console.log('Ausgaben');
+  console.log(ausgaben);
+
+  const einnahmenMinusAusgaben = einnahmen - ausgaben;
+
+  console.log(einnahmenMinusAusgaben);
+
   return (
     <section className="charts-wrapper">
       <div className="chart-data">
-        <ChartData />
-        <ChartBalken />
+        <DonutChart einnahmen={einnahmen} ausgaben={ausgaben} />
+        <ChartData einnahmen={einnahmen} ausgaben={ausgaben} />
+        {/* <LineChart /> */}
       </div>
 
       <div className="kategorie-wrapper">
-        <Toggle title="Einnahmen" howmuch={'3003,87€'} farbe={'blau'}>
-          <div className="sub-item">
-            <KategorieItem
-              what={'Lohn'}
-              howmuch={'23,87€'}
-              farbe={'dunkelblau'}
-            />
-            <KategorieItem
-              what={'Lotto Gewinn'}
-              howmuch={'223,87€'}
-              farbe={'dunkelblau'}
-            />
-          </div>
-        </Toggle>
-        <Toggle title="Ausgaben" howmuch={'-523,87€'} farbe={'rot'}>
-          <div className="sub-item">
-            <KategorieItem what={'Lebensmittel'} howmuch={'23,87€'} />
-            <KategorieItem what={'Shopping'} howmuch={'123,87€'} />
-            <KategorieItem what={'Wohnen'} howmuch={'623,87€'} />
-            <KategorieItem what={'Mobilität'} howmuch={'323,17€'} />
-            <KategorieItem what={'Freizeit'} howmuch={'93,87€'} />
-          </div>
-        </Toggle>
-        <Toggle title="Fixkosten" howmuch={'-703,87€'} farbe={'grau'}>
-          <div className="sub-item">
-            <KategorieItem what={'Wohnen'} howmuch={'23,87€'} />
-            <KategorieItem what={'Strom'} howmuch={'123,87€'} />
-            <KategorieItem what={'Heizungkosten'} howmuch={'623,87€'} />
-            <KategorieItem what={'Abos'} howmuch={'323,17€'} />
-            <KategorieItem what={'Netflix'} howmuch={'93,87€'} />
-          </div>
-        </Toggle>
-        <hr className="strich-rechnung" />
+        {data1 !== undefined
+          ? data1.map((item, index) => (
+              <div key={index} className="kategorie-box">
+                <div className={`kategorie-box-title ${item._id}`}>
+                  <h2>{item._id}</h2>
+                  <h2>{item.total}</h2>
+                </div>
+                {item.totalCategory.map((cat, index) => (
+                  <div key={index} className="kategorieItem-wrapper dunkelblau">
+                    <h2>{cat.category}</h2>
+                    <h2>{cat.sum}</h2>
+                  </div>
+                ))}
+              </div>
+            ))
+          : 'loading'}
         <div className="kategorie-box">
           <div className="kategorie-box-title gelb">
             <h2>Guthaben</h2>
-            <h2>1776.42</h2>
+            <h2>{einnahmenMinusAusgaben}</h2>
           </div>
         </div>
       </div>
@@ -58,4 +82,4 @@ const Charts = () => {
   );
 };
 
-export default Charts;
+export default CurrentTransactions;

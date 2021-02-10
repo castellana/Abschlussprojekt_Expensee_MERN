@@ -113,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button:hover {
-    background: lime;
+    background: #000e36;
     color: #fff;
   }
 
@@ -186,7 +186,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .icon {
-    flex: 1 1 20%;
+    flex: 1 1 5%;
   }
 
   .item-box {
@@ -199,9 +199,15 @@ const GlobalStyle = createGlobalStyle`
   .item-box h2 {
     font-size: 1.4rem;
   }
+  .transaktion-title {
+    width: 80%;
+  }
+  .transaktion-title h2{
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
 
   .date {
-    width: 80px;
+    width: 100px;
     color: rgba(255, 255, 255, 0.5);
     font-size: 1.2rem;
   }
@@ -343,6 +349,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 10px;
 }
 
+.select-single {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  color: #fff;
+  background: #232450;
+  border: 1px solid #32323b;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  h3 {
+    color: rgba(255, 255, 255, 0.534);
+    margin-bottom: 5px;
+  }
+}
+
+.select-single.last {
+  margin-bottom: 10%;
+}
+
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -397,7 +423,7 @@ select:focus::-ms-value {
 
 	&__header {
 		position: relative;
-		background-color: #232450;
+		background-color: #2B2D5B;
 		padding: 1rem;
 		padding-bottom: 0;
 		font-size: 1.2rem;
@@ -410,7 +436,7 @@ select:focus::-ms-value {
 		height: 40px;
 		flex-shrink: 0;
 		margin: 0 20px;
-		background-color: #b61818;
+		background-color:#2B2D5B;
 
 		&::before,
 		&::after {
@@ -419,8 +445,8 @@ select:focus::-ms-value {
 			width: 40px;
 			height: 40px;
 			border: 10px solid transparent;
-			border-top-color: #fff;
-			border-right-color: #ff0000;
+			border-top-color: #2B2D5B;
+			border-right-color: #2B2D5B;
 			transform: translate(-50%, -50%) rotate(45deg);
 			border-radius: 50%;
 			top: 50%;
@@ -437,7 +463,7 @@ select:focus::-ms-value {
 	}
 
 	&__body {
-		background-color: #232450;
+		background-color: #2B2D5B;
 		padding: 1rem;
 		border-radius: 0 0 15px 15px;
 		padding-top: 2rem;
@@ -459,9 +485,11 @@ select:focus::-ms-value {
 .success-wrapper {
   display: flex;
   justify-content: center;
-  height: 50vh;
-  margin-top: 10rem;
-  position: relative
+  height: 100vh;
+  margin-top: 7rem;
+  position: relative;
+  background: #03031f;
+  padding-top: 2rem;
 }
 
 .success-wrapper h3{
@@ -471,7 +499,7 @@ select:focus::-ms-value {
 
 .success-btn {
   position: absolute;
-  top: -4rem;
+  top: -2rem;
   z-index: 10;
 }
 
@@ -479,16 +507,31 @@ select:focus::-ms-value {
   padding: 1.5rem;
 }
 
+.success-item  {
+  margin-bottom: 1rem;
+}
 .success-date {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4.2rem;
+  margin-bottom: 3rem;
 }
 
 .success-kategorie {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
+
+.success-summe {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+
+
+
 
 
 
@@ -564,6 +607,14 @@ hr.strich-rechnung {
 
 .blau {
   background: #515FEB;
+}
+
+.Einnahme {
+  background: #515FEB;
+}
+
+.Ausgabe {
+  background-image: linear-gradient(to right, #f63535 0%, #ff009d 90%);
 }
 
 .dunkelblau {
@@ -949,6 +1000,19 @@ hr.start-line {
   border-top: 1px solid #000000;
   margin: 1em 0; padding: 0;
 }
+
+/* Select */
+
+.category {
+  margin: 20px 0 10px;
+}
+
+.doughnut-box{
+  margin-bottom: 4rem;
+}
+
+
+
 
   @media (max-width: 768px) {
   }

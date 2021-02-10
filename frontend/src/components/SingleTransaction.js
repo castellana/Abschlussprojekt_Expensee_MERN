@@ -11,7 +11,7 @@ const TransactionShowDel = () => {
         axios
         .get(`http://localhost:5000/transactions/${id}`)
         .then((Transaction) => {
-            console.log("transaction to delete :", Transaction.data);
+            console.log('transaction to delete :', Transaction.data);
             setData(Transaction.data);
         })
         .catch((err) => console.log(err));
@@ -19,38 +19,54 @@ const TransactionShowDel = () => {
 
     const handleDelete = () => {
         axios
-            .delete(`http://localhost:5000/transactions/${id}`)
-            // .then(result => console.log(result))
-            .then(result => window.location.href = '/transactions')
-            .catch((err) => console.log(err));
-    }
+        .delete(`http://localhost:5000/transactions/${id}`)
+        .then((result) => (window.location.href = '/transactions/'))
+        .catch((err) => console.log(err));
+    };
 
     return (
         <section className="aktion-wrapper">
-          {data !== undefined ? 
-        //   data.map(item => 
+        {data !== undefined ? (
             <form action="">
-                <div className="select-wrapper">
-                    <p>{data.category}</p>
+            <div className="select-wrapper">
+                <div className="select-single">
+                <h3>Kategorie</h3>
+                <h2>{data.category}</h2>
                 </div>
+            </div>
 
-                <div className="select-wrapper">
-                    <p>{data.transactionType}</p>
+            <div className="select-wrapper">
+                <div className="select-single">
+                <h3>Type</h3>
+                <h2>{data.transactionType}</h2>
                 </div>
-
+            </div>
+            <div className="select-single">
+                <h3>Title</h3>
                 <p>{data.title}</p>
-                <p>{data.amount}</p>
+            </div>
+            <div className="select-single">
+                <h3>Summe</h3>
+                <p>{data.amount}€</p>
+            </div>
+            <div className="select-single last">
+                <h3>Timestamp</h3>
                 <p>{data.date}</p>
-                
-                <Link to={`/transactions/${id}/edit`}>Edit</Link>
+            </div>
 
-                <div className="delete">
-                    <button onClick={handleDelete}>Delete</button>
-                </div>
+            <button>
+                <Link to={`/transactions/${id}/edit`}>Edit</Link>
+            </button>
+
+            <div className="delete">
+                <button onClick={handleDelete}>Delete</button>
+            </div>
             </form>
-          : 'Loading'}
+        ) : (
+            'Loading'
+        )}
         </section>
-    )
-}
+    );
+};
 
 export default TransactionShowDel;

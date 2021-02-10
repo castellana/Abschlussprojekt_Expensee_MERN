@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Navbar from './Nav/Navbar';
+import BottomNavigation from './BottomNavigation';
 
 const axios = require('axios').default;
 
@@ -25,6 +27,8 @@ const TransactionShowDel = () => {
     };
 
     return (
+        <>
+        <Navbar />
         <section className="aktion-wrapper">
         {data !== undefined ? (
             <form action="">
@@ -66,6 +70,8 @@ const TransactionShowDel = () => {
             'Loading'
         )}
         </section>
+        <BottomNavigation />
+    </>
     );
 };
 

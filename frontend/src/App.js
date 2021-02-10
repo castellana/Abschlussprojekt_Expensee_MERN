@@ -12,8 +12,8 @@ import EditTransaction from './components/EditTransaction'
 import EditSuccessful from './components/EditSuccessful'
 
 // import StatusPhone from './components/StatusPhone';
-import Navbar from './components/Nav/Navbar';
-import BottomNavigation from './components/BottomNavigation';
+// import Navbar from './components/Nav/Navbar';
+// import BottomNavigation from './components/BottomNavigation';
 
 // Import pages
 import HomeStart from './pages/HomeStart';
@@ -31,7 +31,7 @@ function App() {
 
         <Router>
         {/* <StatusPhone /> */}
-            <Navbar />
+            {/* <Navbar /> */}
 
             <Switch>
                 <Route path="/" exact>
@@ -58,7 +58,7 @@ function App() {
                 <Route path="/transactions/:id/edit" component={EditTransaction} exact />
                 <Route path="/transactions/:id/edited" component={EditSuccessful} exact />
             </Switch>
-            <BottomNavigation />
+            {/* <BottomNavigation /> */}
         </Router>
     </div>
   );

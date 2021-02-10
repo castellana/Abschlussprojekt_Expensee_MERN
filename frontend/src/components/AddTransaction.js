@@ -44,6 +44,8 @@ const AddTransaction = () => {
                         onChange={(e) => handleChange(e)}
                         value={inputs.category}
                     >
+                            <option value="Lohn">Lohn</option>
+                            <option value="Lotto">Lotto</option>
                             <option value="Lebensmittel">Lebensmittel</option>
                             <option value="Shopping">Shopping</option>
                             <option value="Wohnen">Wohnen</option>

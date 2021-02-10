@@ -64,12 +64,12 @@ const CurrentTransactions = () => {
               <div key={index} className="kategorie-box">
                 <div className={`kategorie-box-title ${item._id}`}>
                   <h2>{item._id}</h2>
-                  <h2>{item.total}</h2>
+                  <h2>{item.total}€</h2>
                 </div>
                 {item.totalCategory.map((cat, index) => (
                   <div key={index} className="kategorieItem-wrapper dunkelblau">
                     <h2>{cat.category}</h2>
-                    <h2>{cat.sum}</h2>
+                    <h2>{cat.sum}€</h2>
                   </div>
                 ))}
               </div>
@@ -78,7 +78,7 @@ const CurrentTransactions = () => {
         <div className="kategorie-box">
           <div className="kategorie-box-title gelb">
             <h2>Guthaben</h2>
-            <h2>{einnahmenMinusAusgaben}</h2>
+            <h2>{einnahmenMinusAusgaben}€</h2>
           </div>
         </div>
       </div>

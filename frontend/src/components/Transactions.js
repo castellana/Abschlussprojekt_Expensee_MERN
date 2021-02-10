@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TransactionItem from './TransactionItem';
 
-
 const axios = require('axios').default;
 
 const Transactions = () => {
@@ -17,11 +16,9 @@ const Transactions = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  
+
   return (
-  
     <div className="container">
-     
       <div className="transaction-list">
         {data !== undefined
           ? data.map((transaction, index) => (
@@ -35,7 +32,6 @@ const Transactions = () => {
         </div>
       </div>
     </div>
-   
   );
 };
 

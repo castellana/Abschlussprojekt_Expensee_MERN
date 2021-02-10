@@ -6,6 +6,7 @@ const TransactionItem = ({ transaction }) => {
   // console.log(transaction);
 
   const color = transaction.transactionType;
+
   return (
     <div className="transactionItem-wrapper">
       <div className="icon">

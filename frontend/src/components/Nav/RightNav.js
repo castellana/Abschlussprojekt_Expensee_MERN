@@ -59,7 +59,7 @@ const RightNav = (props) => {
               <NavLink
                 to="/"
                 onClick={() => setOpen(!open)}
-                activeClassName="selected"
+                // activeClassName="selected"
               >
                 Logout
               </NavLink>

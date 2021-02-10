@@ -566,6 +566,14 @@ hr.strich-rechnung {
   background: #515FEB;
 }
 
+.Einnahme {
+  background: #515FEB;
+}
+
+.Ausgabe {
+  background-image: linear-gradient(to right, #f63535 0%, #ff009d 90%);
+}
+
 .dunkelblau {
   background: #32377C;
 }
@@ -948,6 +956,16 @@ hr.start-line {
   border: 0;
   border-top: 1px solid #000000;
   margin: 1em 0; padding: 0;
+}
+
+/* Select */
+
+.category {
+  margin: 20px 0 10px;
+}
+
+.doughnut-box{
+  margin-bottom: 4rem;
 }
 
   @media (max-width: 768px) {

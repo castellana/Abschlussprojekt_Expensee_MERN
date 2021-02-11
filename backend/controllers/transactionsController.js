@@ -10,34 +10,35 @@ const transaction_get = (req, res) => {
 
 const transaction_create = (req, res) => {
     console.log(req.body)
-    // const newTransaction = new Transaction ({
-    //     description: req.body.description,
-    //     category: req.body.category,
-    //     amount: req.body.amount,
-    //     date: req.body.date,
-    // })
+ 
     const newTransaction = new Transaction (req.body)
     // res.status(201).end(req.body) Postmann
     newTransaction
         .save()
-        // .then(result => res.send(result))
         .then(result => {
-            res.sendStatus(201)
+            res.send(result).sendStatus(201)
         })
         .catch(err => console.log(err))
 }
 
 
-//get details of a transaction:
 const transaction_getById = (req, res) => {
     console.log(req.params.id)
-    // res.send('Get transaction details')
     Transaction.findById(req.params.id)
         .then(transaction => res.json(transaction))
         .catch(err => console.log(err))
+    // Transaction.aggregate(
+    //     [
+    //       {
+    //         $project: {
+    //            yearMonthDayUTC: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+    //         }
+    //       }
+    //     ]
+    //  )
 }
 
-//edit a transaction: PUT
+
 const transaction_put = (req, res) => {
     console.log(req.body)
     Transaction.findByIdAndUpdate(req.params.id, req.body)
@@ -49,50 +50,16 @@ const transaction_put = (req, res) => {
 }
 
 
-
 const transaction_delete = (req, res) => {
     Transaction.findByIdAndDelete(req.params.id)
         .then(result => {
-            console.log(result);
+            console.log("result :", result);
+            // res.send(result).sendStatus(204)
             res.sendStatus(204)
         })
         .catch(err => console.log(err))
 }
 
-
-// const currentMonth = (req, res) => {
-//     Transaction.aggregate([
-//         {$facet: {
-//                     sortedByCategory: [
-//                         {$match:  
-//                             {$expr: 
-//                                 {$eq: [{ $month: {"$toDate":"$date"}}, {$month: new Date()}]}
-//                             }
-//                         },
-//                         {$group: {
-//                                 _id: "$category", 
-//                                 totalCategory: {'$sum': '$amount'},
-//                                 }
-//                         } 
-//                     ],
-//                     totalAusgabeEinahme: [
-//                         {$match:  
-//                             {$expr: 
-//                             {$eq: [{ $month: {"$toDate":"$date"}}, {$month: new Date()}]}
-//                             }
-//                         },
-//                         {$group : { _id : "$transactionType", total:  {$sum: "$amount"} } }
-//                     ]
-        
-//                 }
-//             },        
-//     ])
-//     .then(result => {
-//         console.log(result);
-//         res.json(result)
-//     })
-//     .catch(err => console.log(err))
-// }
 
 const currentMonth = (req, res) => {
     Transaction.aggregate([
@@ -107,8 +74,6 @@ const currentMonth = (req, res) => {
                     transactionType: "$transactionType", 
                     category: "$category" },
                     count:  {$sum: "$amount"},
-                    // type1: {$transactionType: "$Einnahme"},
-                    // type2: {$transactionType: "$Ausgabe"}
             }
         },
 

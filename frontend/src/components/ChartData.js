@@ -10,11 +10,11 @@ const ChartData = ({ einnahmen, ausgaben, einnahmenMinusAusgaben }) => {
       <div className="legende">
         <div className="legende-1">
           <img src={KreisBlau} alt="Icon" />
-          <h3>Einnahmen: {einnahmen}€</h3>
+          <h3>Einkommen: {einnahmen}€</h3>
         </div>
         <div className="legende-1">
           <img src={KreisRot} alt="Icon" />
-          <h3>Ausgaben: {ausgaben}€</h3>
+          <h3>Ausgaben: -{ausgaben}€</h3>
         </div>
         <div className="legende-1">
           <img src={KreisGelb} alt="Icon" />

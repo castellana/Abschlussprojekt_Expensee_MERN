@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import ChartData from '../components/ChartData';
 
 import DonutChart from '../components/DonutChart';
+import Navbar from '../components/Nav/Navbar';
+import BottomNavigation from '../components/BottomNavigation';
 
 // import LineChart from '../components/LineChart';
 
@@ -47,42 +49,53 @@ const CurrentTransactions = () => {
   console.log(einnahmenMinusAusgaben);
 
   return (
-    <section className="charts-wrapper">
-      <div className="chart-data">
-        <DonutChart einnahmen={einnahmen} ausgaben={ausgaben} />
-        <ChartData
-          einnahmen={einnahmen}
-          ausgaben={ausgaben}
-          einnahmenMinusAusgaben={einnahmenMinusAusgaben}
-        />
-        {/* <LineChart /> */}
-      </div>
+    <>
+      <Navbar />
+      <section className="charts-wrapper">
+        <div className="chart-data">
+          <DonutChart
+            einnahmen={einnahmen}
+            ausgaben={ausgaben}
+            einnahmenMinusAusgaben={einnahmenMinusAusgaben}
+          />
+          <ChartData
+            einnahmen={einnahmen}
+            ausgaben={ausgaben}
+            einnahmenMinusAusgaben={einnahmenMinusAusgaben}
+          />
+          {/* <LineChart /> */}
+        </div>
 
-      <div className="kategorie-wrapper">
-        {data1 !== undefined
-          ? data1.map((item, index) => (
-              <div key={index} className="kategorie-box">
-                <div className={`kategorie-box-title ${item._id}`}>
-                  <h2>{item._id}</h2>
-                  <h2>{item.total}</h2>
-                </div>
-                {item.totalCategory.map((cat, index) => (
-                  <div key={index} className="kategorieItem-wrapper dunkelblau">
-                    <h2>{cat.category}</h2>
-                    <h2>{cat.sum}</h2>
+        <div className="kategorie-wrapper">
+          {data1 !== undefined
+            ? data1.map((item, index) => (
+                <div key={index} className="kategorie-box">
+                  <div className={`kategorie-box-title ${item._id}`}>
+                    <h2>{item._id}</h2>
+                    <h2>{item.total}€</h2>
                   </div>
-                ))}
-              </div>
-            ))
-          : 'loading'}
-        <div className="kategorie-box">
-          <div className="kategorie-box-title gelb">
-            <h2>Guthaben</h2>
-            <h2>{einnahmenMinusAusgaben}</h2>
+                  {item.totalCategory.map((cat, index) => (
+                    <div
+                      key={index}
+                      className="kategorieItem-wrapper dunkelblau"
+                    >
+                      <h2>{cat.category}</h2>
+                      <h2>{cat.sum}€</h2>
+                    </div>
+                  ))}
+                </div>
+              ))
+            : 'loading'}
+          <div className="kategorie-box">
+            <div className="kategorie-box-title gelb">
+              <h2>Guthaben</h2>
+              <h2>{einnahmenMinusAusgaben}€</h2>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <BottomNavigation />
+    </>
   );
 };
 

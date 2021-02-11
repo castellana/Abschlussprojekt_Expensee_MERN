@@ -8,12 +8,12 @@ import Transactions from './components/Transactions';
 import AddTransaction from './components/AddTransaction';
 import SingleTransaction from './components/SingleTransaction';
 import CurrentMonth from './components/CurrentMonth';
-import EditTransaction from './components/EditTransaction';
-import EditSuccessful from './components/EditSuccessful';
+import EditTransaction from './components/EditTransaction'
+import EditSuccessful from './components/EditSuccessful'
 
 // import StatusPhone from './components/StatusPhone';
-import Navbar from './components/Nav/Navbar';
-import BottomNavigation from './components/BottomNavigation';
+// import Navbar from './components/Nav/Navbar';
+// import BottomNavigation from './components/BottomNavigation';
 
 // Import pages
 import HomeStart from './pages/HomeStart';
@@ -29,45 +29,37 @@ function App() {
     <div className="App">
       <GlobalStyle />
 
-      <Router>
+        <Router>
         {/* <StatusPhone /> */}
-        <Navbar />
+            {/* <Navbar /> */}
 
-        <Switch>
-          <Route path="/" exact>
-            <Login />
-          </Route>
+            <Switch>
+                <Route path="/" exact>
+                    <Login />
+                </Route>
 
-          <Route path="/Transactions" component={Transactions} exact />
+                <Route path="/Transactions" component={Transactions} exact />
 
-          <Route path="/HomeStart">
-            <HomeStart />
-          </Route>
+                <Route path="/HomeStart">
+                    <HomeStart />
+                </Route>
 
-          <Route path="/charts">
-            <Charts />
-          </Route>
+                <Route path="/charts">
+                    <Charts />
+                </Route>
 
-          {/* <Route path="/test">
-                    <TestPage />
-                </Route> */}
+            {/* <Route path="/test">
+                        <TestPage />
+                    </Route> */}
 
-          <Route path="/monthly" component={CurrentMonth} exact />
-          <Route path="/add" component={AddTransaction} />
-          <Route path="/transactions/:id" component={SingleTransaction} exact />
-          <Route
-            path="/transactions/:id/edit"
-            component={EditTransaction}
-            exact
-          />
-          <Route
-            path="/transactions/:id/edited"
-            component={EditSuccessful}
-            exact
-          />
-        </Switch>
-        <BottomNavigation />
-      </Router>
+                <Route path="/monthly" component={CurrentMonth} exact />
+                <Route path="/add" component={AddTransaction} />
+                <Route path="/transactions/:id" component={SingleTransaction} exact/>
+                <Route path="/transactions/:id/edit" component={EditTransaction} exact />
+                <Route path="/transactions/:id/edited" component={EditSuccessful} exact />
+            </Switch>
+            {/* <BottomNavigation /> */}
+        </Router>
     </div>
   );
 }

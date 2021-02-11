@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
+import Navbar from './Nav/Navbar';
+import BottomNavigation from './BottomNavigation';
 const axios = require('axios').default
 
 
@@ -37,6 +39,8 @@ const EditTransaction = () => {
     }
 
     return (
+        <>
+        <Navbar />
         <section className="aktion-wrapper">
             {data !== undefined ? (
                 <form action="">
@@ -44,8 +48,11 @@ const EditTransaction = () => {
                         <select
                             name="category"
                             onChange={(e) => handleChange(e)}
-                            value={data}
+                            value={data.category}
                         >
+                            <option value="Lohn">Lohn</option>
+                            <option value="Lotto">Lotto</option>
+                            <option value="Geschenk">Geschenk</option>
                             <option value="Lebensmittel">Lebensmittel</option>
                             <option value="Shopping">Shopping</option>
                             <option value="Wohnen">Wohnen</option>
@@ -58,7 +65,7 @@ const EditTransaction = () => {
                         <select
                             name="transactionType"
                             onChange={(e) => handleChange(e)}
-                            value={data}
+                            value={data.transactionType}
                         >
                                 <option value="Ausgabe">Ausgabe</option>
                                 <option value="Einnahme">Einnahme</option>
@@ -96,6 +103,8 @@ const EditTransaction = () => {
         'Loading'}
 
     </section>
+     <BottomNavigation />
+     </>
     );
 }
 

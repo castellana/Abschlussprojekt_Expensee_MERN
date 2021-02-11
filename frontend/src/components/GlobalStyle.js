@@ -289,19 +289,19 @@ input {
 }
 
 input:focus {
-  background-color: #355023;
+  background-color: #6dadfc;
   color: #fff;
   outline: none;
 }
 
 input:hover {
-  background-color: #233750;
+  background-color: rgba(109, 173, 252, 0.548);
   color: #fff;
   outline: none;
 }
 
 input:hover::placeholder {
-  color: red;
+  color: #fff;
 }
 
 input[type='number'] {
@@ -323,11 +323,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 ::-webkit-datetime-edit { padding: 1em; }
-::-webkit-datetime-edit-fields-wrapper { background: silver; }
-::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
-::-webkit-datetime-edit-month-field { color: blue; }
-::-webkit-datetime-edit-day-field { color: green; }
-::-webkit-datetime-edit-year-field { color: purple; }
+/* ::-webkit-datetime-edit-fields-wrapper { background: silver; } */
+::-webkit-datetime-edit-text { color: white; padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: white; }
+::-webkit-datetime-edit-day-field { color: white; }
+::-webkit-datetime-edit-year-field { color: white; }
 ::-webkit-inner-spin-button { display: none; }
 
 
@@ -377,7 +377,7 @@ select {
   width: 100%;
   height: 40px;
   -moz-padding-start: calc(10px - 3px);
-  padding-left: 10px;
+  padding-left: 5%;
   background: var(--secondary-color);
   color: #fff;
   font-size: 16px;

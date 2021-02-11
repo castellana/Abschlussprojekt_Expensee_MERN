@@ -50,7 +50,11 @@ const CurrentTransactions = () => {
     <section className="charts-wrapper">
       <div className="chart-data">
         <DonutChart einnahmen={einnahmen} ausgaben={ausgaben} />
-        <ChartData einnahmen={einnahmen} ausgaben={ausgaben} />
+        <ChartData
+          einnahmen={einnahmen}
+          ausgaben={ausgaben}
+          einnahmenMinusAusgaben={einnahmenMinusAusgaben}
+        />
         {/* <LineChart /> */}
       </div>
 

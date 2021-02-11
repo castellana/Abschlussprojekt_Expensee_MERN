@@ -2,7 +2,6 @@ import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 const DonutChart = ({ einnahmen, ausgaben }) => {
-  console.log(einnahmen);
   const werte = [einnahmen, ausgaben];
   const data = {
     labels: ['Einnahmen', 'Ausgaben'],

@@ -7,11 +7,11 @@ const axios = require('axios').default;
 const AddTransaction = () => {
     
     const [inputs, setInputs] = useState({
-        category: 'Please select',
+        category: '',
         transactionType: 'Ausgabe',
         title: '',
         amount: '',
-        date: new Date(),
+        date: '',
     });
 
     const handleChange = (event) => {
@@ -44,8 +44,10 @@ const AddTransaction = () => {
                         onChange={(e) => handleChange(e)}
                         value={inputs.category}
                     >
-                            <option value="Lohn">Lohn</option>
+                            <option value="">Please select</option>
+                            <option value="Gehalt">Gehalt</option>
                             <option value="Lotto">Lotto</option>
+                            <option value="Geschenk">Geschenk</option>
                             <option value="Lebensmittel">Lebensmittel</option>
                             <option value="Shopping">Shopping</option>
                             <option value="Wohnen">Wohnen</option>

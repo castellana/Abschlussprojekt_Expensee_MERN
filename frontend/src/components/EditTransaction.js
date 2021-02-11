@@ -50,6 +50,9 @@ const EditTransaction = () => {
                             onChange={(e) => handleChange(e)}
                             value={data.category}
                         >
+                            <option value="Lohn">Lohn</option>
+                            <option value="Lotto">Lotto</option>
+                            <option value="Geschenk">Geschenk</option>
                             <option value="Lebensmittel">Lebensmittel</option>
                             <option value="Shopping">Shopping</option>
                             <option value="Wohnen">Wohnen</option>

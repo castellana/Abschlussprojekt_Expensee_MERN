@@ -27,6 +27,15 @@ const transaction_getById = (req, res) => {
     Transaction.findById(req.params.id)
         .then(transaction => res.json(transaction))
         .catch(err => console.log(err))
+    // Transaction.aggregate(
+    //     [
+    //       {
+    //         $project: {
+    //            yearMonthDayUTC: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+    //         }
+    //       }
+    //     ]
+    //  )
 }
 
 

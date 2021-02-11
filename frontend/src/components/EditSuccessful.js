@@ -4,6 +4,9 @@ import SuccessButton from './SuccessButton';
 import Navbar from './Nav/Navbar';
 import BottomNavigation from './BottomNavigation';
 
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
+
 // import Clock from '../components/Clock';
 
 import ticketLine from './img/ticket-line.svg';
@@ -28,7 +31,7 @@ const EditSuccessful = () => {
   return (
     <>
       <Navbar />
-      <section>
+      <motion.section variants={pageAnimation} initial="hidden" animate="show">
         {data !== undefined ? (
           <div className="success-wrapper">
             <div className="success-btn">
@@ -81,7 +84,7 @@ const EditSuccessful = () => {
         ) : (
           'Loading'
         )}
-      </section>
+      </motion.section>
       <BottomNavigation />
     </>
   );

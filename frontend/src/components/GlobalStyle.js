@@ -1009,7 +1009,7 @@ hr.start-line {
 }
 
 .doughnut-box{
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
 }
 
 /* Login */
@@ -1053,6 +1053,11 @@ hr.start-line {
     }
   }
 
+  .line-box {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10rem;
+  }
 
 `;
 

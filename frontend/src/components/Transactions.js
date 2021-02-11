@@ -5,6 +5,9 @@ import Navbar from './Nav/Navbar';
 import BottomNavigation from './BottomNavigation';
 import HomeIntro from '../components/HomeIntro';
 
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
+
 const axios = require('axios').default;
 
 const Transactions = () => {
@@ -23,21 +26,27 @@ const Transactions = () => {
   return (
     <>
       <Navbar />
-      <HomeIntro />
-      <div className="container">
+
+      <motion.div
+        className="container"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+      >
+        <HomeIntro />
         <div className="transaction-list">
           {data !== undefined
             ? data.map((transaction, index) => (
                 <TransactionItem key={index} transaction={transaction} />
               ))
-            : 'loading'}
+            : '<h2>loading</h2'}
           <div className="more-action">
             <button>
               <Link to="/add">mehr Transaktionen anzeigen</Link>
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
       <BottomNavigation />
     </>
   );

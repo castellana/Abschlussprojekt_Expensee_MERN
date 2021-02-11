@@ -10,10 +10,34 @@ const DonutChart = ({ einnahmen, ausgaben, einnahmenMinusAusgaben }) => {
     datasets: [
       {
         data: [ausgaben, einnahmen, einnahmenMinusAusgaben],
-        backgroundColor: ['#ff00c8', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#ff00c8', '#36A2EB', '#FFCE56'],
+        backgroundColor: [
+          'rgba(255, 0, 200, 0.801)',
+          'rgba(81, 94, 235, 0.815)',
+          'rgba(255, 207, 86, 0.801)',
+        ],
+        hoverBackgroundColor: ['#ff00c8', '#515FEB', '#FFCE56'],
+        borderWidth: 0,
+        // borderColor: 'rgba(255, 255, 255, 0.24)',
+        // hoverBorderColor: [
+        //   'rgba(255, 255, 255, 0.507)',
+        //   'rgba(255, 255, 255, 0.425)',
+        //   'rgba(255, 255, 255, 0.493)',
+        // ],
       },
     ],
+  };
+
+  const options = {
+    legend: {
+      labels: {
+        fontColor: 'white',
+        fontSize: 12,
+        padding: 20,
+      },
+      display: true,
+      position: 'right',
+      align: 'start',
+    },
   };
 
   // const data = {
@@ -31,7 +55,7 @@ const DonutChart = ({ einnahmen, ausgaben, einnahmenMinusAusgaben }) => {
   return (
     <>
       <div className="doughnut-box">
-        <Doughnut data={data} />
+        <Doughnut data={data} options={options} />
       </div>
     </>
   );

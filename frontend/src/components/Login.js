@@ -1,7 +1,15 @@
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
+
 const Login = () => {
   return (
     <section>
-      <div className="login-wrapper">
+      <motion.div
+        className="login-wrapper"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+      >
         <div className="logo">
           <h1>Expensee</h1>
         </div>
@@ -10,7 +18,7 @@ const Login = () => {
             <a href="http://localhost:5000/auth/google">Login mit Google</a>
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

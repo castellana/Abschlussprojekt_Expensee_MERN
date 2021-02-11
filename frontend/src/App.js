@@ -57,6 +57,7 @@ function App() {
                 <Route path="/transactions/:id" component={SingleTransaction} exact/>
                 <Route path="/transactions/:id/edit" component={EditTransaction} exact />
                 <Route path="/transactions/:id/edited" component={EditSuccessful} exact />
+                
             </Switch>
             {/* <BottomNavigation /> */}
         </Router>

@@ -11,16 +11,16 @@ const TransactionSchema = new mongoose.Schema({
         required: true
     },
     category: {
-        type: String, 
+        type: 'string', 
         trim: true,
         required: true
     },
     date: {
-        type: Date,
+        type: 'date',
         default: Date.now
     },
     transactionType: {
-        type: String,
+        type: 'string',
         required: true
     }
 }

@@ -8,7 +8,7 @@ const AddTransaction = () => {
     
     const [inputs, setInputs] = useState({
         category: '',
-        transactionType: 'Ausgabe',
+        transactionType: '',
         title: '',
         amount: '',
         date: '',
@@ -44,7 +44,7 @@ const AddTransaction = () => {
                         onChange={(e) => handleChange(e)}
                         value={inputs.category}
                     >
-                            <option value="">Please select</option>
+                            <option value="">Bitte auswählen</option>
                             <option value="Gehalt">Gehalt</option>
                             <option value="Lotto">Lotto</option>
                             <option value="Geschenk">Geschenk</option>
@@ -62,6 +62,7 @@ const AddTransaction = () => {
                         onChange={(e) => handleChange(e)}
                         value={inputs.transactionType}
                     >
+                            <option value="">Bitte auswählen</option>
                             <option value="Ausgabe">Ausgabe</option>
                             <option value="Einnahme">Einnahme</option>
                     </select>
@@ -85,13 +86,13 @@ const AddTransaction = () => {
 
                 <input
                     type="date"
-                    placeholder="Datum der Ausgabe"
+                    placeholder="Datum dd/mm/yyyy"
                     name="date"
                     value={inputs.date}
                     onChange={(e) => handleChange(e)}
                 />
             
-                <input type="button" onClick={handleSubmit} value="Submit" />
+                <input type="button" onClick={handleSubmit} value="HINZUFÜGEN" />
             </form>
         </section>
         <BottomNavigation />

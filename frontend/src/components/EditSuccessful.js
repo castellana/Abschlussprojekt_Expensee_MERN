@@ -50,7 +50,7 @@ const EditSuccessful = () => {
                         <div className="success-ticket-box">
                         <div className="success-date">
                             <div className="success-datum">
-                            <h3>Datum</h3>
+                            <h3>Aktualisiert am</h3>
                             <h2>{heute}</h2>
                             </div>
 

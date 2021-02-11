@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import red from './img/red.svg';
 import blue from './img/blue.svg';
+import { parseISO, format } from 'date-fns'
 
 const TransactionItem = ({ transaction }) => {
-  // console.log(transaction);
 
   const color = transaction.transactionType;
   return (
@@ -22,7 +22,9 @@ const TransactionItem = ({ transaction }) => {
               <h2>{transaction.title}</h2>
               <div className="timestamp">
                 <div className="date">
-                  <p>{transaction.date}</p>
+                  {/* <p>{transaction.date}</p> */}
+                  {/* zum testen von Datum: */}
+                  <p>{format(parseISO(transaction.date), "dd/MM/yyyy")}</p>
                 </div>
               </div>
             </div>

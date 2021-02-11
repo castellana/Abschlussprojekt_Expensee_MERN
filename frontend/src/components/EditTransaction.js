@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import Navbar from './Nav/Navbar';
 import BottomNavigation from './BottomNavigation';
+import { parseISO, format } from 'date-fns'
 const axios = require('axios').default
 
 
@@ -15,6 +16,7 @@ const EditTransaction = () => {
             .then((Transaction) => {
                 console.log(Transaction);
                 setData(Transaction.data);
+                console.log("transaction.data :", Transaction.data);
             })
             .catch((err) => console.log(err));
     }, [id]);
@@ -86,17 +88,19 @@ const EditTransaction = () => {
                         value={data.amount}
                         onChange={(e) => handleChange(e)}
                     />
+                    
                     <input
                         type="date"
                         placeholder="Datum der Ausgabe"
                         name="date"
-                        value={data.date}
+                        // value="2021-02-10"
+                        value={format(parseISO(data.date), "yyyy-MM-dd")}
                         onChange={(e) => handleChange(e)}
                     />
+                    
                     <button>
-                        <input type="button" onClick={handleEdit} value="Edit" />
+                        <input type="button" onClick={handleEdit} value="AKTUALISIEREN" />
                     </button>
- 
 
                 </form>
             ): 

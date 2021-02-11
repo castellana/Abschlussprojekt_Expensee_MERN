@@ -316,6 +316,7 @@ input[type='number'] {
 
 input[type='date'] {
   font-size: 2rem;
+  padding-left: 0.5rem;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -360,7 +361,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: space-between;
   h3 {
-    color: rgba(255, 255, 255, 0.534);
+    color: rgba(255, 255, 255, 0.699);
     margin-bottom: 5px;
   }
 }
@@ -377,7 +378,7 @@ select {
   width: 100%;
   height: 40px;
   -moz-padding-start: calc(10px - 3px);
-  padding-left: 5%;
+  padding-left: 2rem;
   background: var(--secondary-color);
   color: #fff;
   font-size: 16px;

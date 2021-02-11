@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import TransactionItem from './TransactionItem';
 import Navbar from './Nav/Navbar';
 import BottomNavigation from './BottomNavigation';
+import HomeIntro from '../components/HomeIntro';
 
 const axios = require('axios').default;
 
@@ -21,22 +22,23 @@ const Transactions = () => {
 
   return (
     <>
-        <Navbar />
-        <div className="container">
-            <div className="transaction-list">
-                {data !== undefined
-                ? data.map((transaction, index) => (
-                    <TransactionItem key={index} transaction={transaction} />
-                    ))
-                : 'loading'}
-                <div className="more-action">
-                <button>
-                    <Link to="/add">mehr Transaktionen anzeigen</Link>
-                </button>
-                </div>
-            </div>
+      <Navbar />
+      <HomeIntro />
+      <div className="container">
+        <div className="transaction-list">
+          {data !== undefined
+            ? data.map((transaction, index) => (
+                <TransactionItem key={index} transaction={transaction} />
+              ))
+            : 'loading'}
+          <div className="more-action">
+            <button>
+              <Link to="/add">mehr Transaktionen anzeigen</Link>
+            </button>
+          </div>
         </div>
-        <BottomNavigation />
+      </div>
+      <BottomNavigation />
     </>
   );
 };

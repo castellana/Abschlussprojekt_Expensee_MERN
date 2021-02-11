@@ -29,7 +29,7 @@ const CurrentTransactions = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
+  console.log(data1);
   const einnahmen = [];
   const ausgaben = [];
   const test1 =
@@ -71,13 +71,8 @@ const CurrentTransactions = () => {
 
         <div className="kategorie-wrapper">
           {data1 !== undefined
-            ? data1.map((item, index) => (
-                <ToggleCat
-                  key={index}
-                  index={index}
-                  title={item._id}
-                  total={item.total}
-                >
+            ? data1.map((item) => (
+                <ToggleCat key={item._id} title={item._id} total={item.total}>
                   {item.totalCategory.map((cat) => (
                     <div className="sub-item">
                       <KategorieItem2

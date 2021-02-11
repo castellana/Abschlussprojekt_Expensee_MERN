@@ -6,9 +6,6 @@ import DonutChart from '../components/DonutChart';
 import Navbar from '../components/Nav/Navbar';
 import BottomNavigation from '../components/BottomNavigation';
 
-import ToggleCat from '../components/ToggleCat';
-import KategorieItem2 from '../components/KategorieItem2';
-
 // import LineChart from '../components/LineChart';
 
 const axios = require('axios').default;
@@ -29,7 +26,7 @@ const CurrentTransactions = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
+  console.log(data1);
   const einnahmen = [];
   const ausgaben = [];
   const test1 =
@@ -72,22 +69,21 @@ const CurrentTransactions = () => {
         <div className="kategorie-wrapper">
           {data1 !== undefined
             ? data1.map((item, index) => (
-                <ToggleCat
-                  key={index}
-                  index={index}
-                  title={item._id}
-                  total={item.total}
-                >
-                  {item.totalCategory.map((cat) => (
-                    <div className="sub-item">
-                      <KategorieItem2
-                        key={cat._id}
-                        category={cat.category}
-                        sum={cat.sum}
-                      />
+                <div key={index} className="kategorie-box">
+                  <div className={`kategorie-box-title ${item._id}`}>
+                    <h2>{item._id}</h2>
+                    <h2>{item.total}€</h2>
+                  </div>
+                  {item.totalCategory.map((cat, index) => (
+                    <div
+                      key={index}
+                      className="kategorieItem-wrapper dunkelblau"
+                    >
+                      <h2>{cat.category}</h2>
+                      <h2>{cat.sum}€</h2>
                     </div>
                   ))}
-                </ToggleCat>
+                </div>
               ))
             : 'loading'}
           <div className="kategorie-box">

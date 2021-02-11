@@ -98,7 +98,7 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     /* margin: 4px 2px; */
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 5px;
     transition: all 0.5s ease;
     outline: none;
     border: 0;
@@ -356,7 +356,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 8px 0;
   color: #fff;
   background: #232450;
-  border: 1px solid #32323b;
+  border: 1px solid #0a0b29;
   border-radius: 3px;
   display: flex;
   justify-content: space-between;
@@ -1012,10 +1012,45 @@ hr.start-line {
   margin-bottom: 4rem;
 }
 
+/* Login */
 
+.login-wrapper {
+  margin-top: 20vh;
+  height: 30vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
 
+.logo h1 {
+  font-size: 6rem;
+}
 
+.login {
+  width: 90%;
+}
+
+.login button {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.clock {
+  display: none;
+
+}
+
+.clock h2 {
+  font-size: 1.5rem;
+}
   @media (max-width: 768px) {
+    .clock {
+      display: block;
+      align-self: flex-end;
+      padding-right: 2rem;
+      padding-bottom: 3rem;
+    }
   }
 
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import Clock from '../../components/Clock';
+
 // import Login from './components/Login';
 const RightNav = (props) => {
   const { open, setOpen } = props;
@@ -80,6 +82,7 @@ const RightNav = (props) => {
         {/* <div className="dark-mode">
           <button>dark</button>
         </div> */}
+        <Clock />
       </Ul>
     </NavStyle>
   );
@@ -211,6 +214,9 @@ const Ul = styled.div`
       align-items: flex-start;
       flex-direction: column;
       width: 80%;
+    }
+    ul {
+      margin-top: 4rem;
     }
     li {
       color: #fff;

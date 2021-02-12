@@ -11,7 +11,7 @@ const ToggleCat = ({ children, title, total, index }) => {
     >
       <div className={`kategorie-box-title ${title}`}>
         <h2>{title}</h2>
-        <h2>{total}€</h2>
+        <h2>{title === 'Einnahme' ? total : `-${total}`}€</h2>
       </div>
       {toggle ? children : ''}
     </div>

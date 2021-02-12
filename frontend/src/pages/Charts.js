@@ -82,7 +82,7 @@ const CurrentTransactions = () => {
                   key={index}
                   index={index}
                   title={item._id}
-                  total={item.total}
+                  total={item.total.toFixed(2)}
                 >
                   {item.totalCategory.map((cat) => (
                     <div className="sub-item">

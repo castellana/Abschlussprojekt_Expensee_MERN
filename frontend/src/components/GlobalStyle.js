@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --header1: 3rem;
     --header2: 1.7rem;
-    --header3: 1.2rem;
+    --header3: 1.3rem;
     --text: 1.5rem;
     --font-weight-light: 300;
     --font-weight-regular: 400;
@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
   h3 {
     font-size: var(--header3);
     color: #fff;
-    font-weight: 400;
+    font-weight: 800;
   }
 
   li,
@@ -72,6 +72,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h3 {
     font-size: var(--header3);
+    margin-bottom: 1rem;
   }
   h4,
   h5 {
@@ -160,7 +161,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .title-box {
-    margin-top: 4.6rem;
+    margin-top: 2rem;
     margin-bottom: 2.6rem;
     padding: 1rem 2rem;
     display: flex;
@@ -1046,6 +1047,63 @@ hr.start-line {
 .clock h2 {
   font-size: 1.5rem;
 }
+
+.guthaben-wrapper {
+  width: 90%;
+  height: 25vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+}
+
+.plus-minus {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.726);
+  }
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+.guthaben {
+  margin-bottom: 5rem;
+}
+.einnahmen {
+  flex: 1 1 50%;
+  border-right: 1px solid rgba(255, 255, 255, 0.63);
+}
+.ausgaben {
+  flex: 1 1 50%;
+}
+
+.counter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-wrapper p {
+  width: 100%;
+  font-size: 4rem;
+  color: white;
+}
+
+
+
+
   @media (max-width: 768px) {
     .clock {
       display: block;

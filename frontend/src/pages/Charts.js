@@ -99,7 +99,7 @@ const CurrentTransactions = () => {
           <div className="kategorie-box">
             <div className="kategorie-box-title gelb">
               <h2>Guthaben</h2>
-              <h2>{einnahmenMinusAusgaben}€</h2>
+              <h2>{einnahmenMinusAusgaben.toFixed(2)}€</h2>
             </div>
           </div>
         </div>

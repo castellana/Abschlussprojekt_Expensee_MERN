@@ -8,6 +8,8 @@ import HomeIntro from '../components/HomeIntro';
 import { motion } from 'framer-motion';
 import { pageAnimation } from '../animation';
 
+import GuthabenAnzeige from '../components/GuthabenAnzeige';
+
 const axios = require('axios').default;
 
 const Transactions = () => {
@@ -33,6 +35,7 @@ const Transactions = () => {
         initial="hidden"
         animate="show"
       >
+        <GuthabenAnzeige />
         <HomeIntro />
         <div className="transaction-list">
           {data !== undefined

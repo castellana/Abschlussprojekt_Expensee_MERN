@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 // import ChartData from '../components/ChartData';
 
 import DonutChart from '../components/DonutChart';
+
 import Navbar from '../components/Nav/Navbar';
 import BottomNavigation from '../components/BottomNavigation';
 
@@ -56,6 +57,7 @@ const CurrentTransactions = () => {
       <Navbar />
       <motion.section
         className="charts-wrapper"
+        exit="exit"
         variants={pageAnimation}
         initial="hidden"
         animate="show"

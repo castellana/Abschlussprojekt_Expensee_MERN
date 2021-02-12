@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import ChartData from '../components/ChartData';
+// import ChartData from '../components/ChartData';
 
 import DonutChart from '../components/DonutChart';
 import Navbar from '../components/Nav/Navbar';
@@ -8,8 +8,9 @@ import BottomNavigation from '../components/BottomNavigation';
 
 import ToggleCat from '../components/ToggleCat';
 import KategorieItem2 from '../components/KategorieItem2';
-
-// import LineChart from '../components/LineChart';
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
+import LineChart from '../components/LineChart';
 
 const axios = require('axios').default;
 
@@ -29,7 +30,7 @@ const CurrentTransactions = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(data1);
+
   const einnahmen = [];
   const ausgaben = [];
   const test1 =
@@ -48,31 +49,40 @@ const CurrentTransactions = () => {
   console.log(ausgaben);
 
   const einnahmenMinusAusgaben = einnahmen - ausgaben;
-
   console.log(einnahmenMinusAusgaben);
 
   return (
     <>
       <Navbar />
-      <section className="charts-wrapper">
+      <motion.section
+        className="charts-wrapper"
+        exit="exit"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+      >
         <div className="chart-data">
           <DonutChart
             einnahmen={einnahmen}
             ausgaben={ausgaben}
             einnahmenMinusAusgaben={einnahmenMinusAusgaben}
           />
-          <ChartData
+          {/* <ChartData
             einnahmen={einnahmen}
             ausgaben={ausgaben}
             einnahmenMinusAusgaben={einnahmenMinusAusgaben}
-          />
-          {/* <LineChart /> */}
+          /> */}
         </div>
 
         <div className="kategorie-wrapper">
           {data1 !== undefined
-            ? data1.map((item) => (
-                <ToggleCat key={item._id} title={item._id} total={item.total}>
+            ? data1.map((item, index) => (
+                <ToggleCat
+                  key={index}
+                  index={index}
+                  title={item._id}
+                  total={item.total}
+                >
                   {item.totalCategory.map((cat) => (
                     <div className="sub-item">
                       <KategorieItem2
@@ -92,7 +102,14 @@ const CurrentTransactions = () => {
             </div>
           </div>
         </div>
-      </section>
+        <div className="chart-data">
+          <LineChart
+            einnahmen={einnahmen}
+            ausgaben={ausgaben}
+            einnahmenMinusAusgaben={einnahmenMinusAusgaben}
+          />
+        </div>
+      </motion.section>
       <BottomNavigation />
     </>
   );

@@ -695,8 +695,10 @@ hr.strich-rechnung {
 .iconhover:hover {
   cursor: pointer;
   svg path {
-    color:red;
-    fill: blue;
+    fill: #ff009d;
+  }
+  h3 {
+    color:white;
   }
 }
 

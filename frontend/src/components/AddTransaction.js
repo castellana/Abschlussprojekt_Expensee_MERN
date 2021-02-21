@@ -52,7 +52,7 @@ const AddTransaction = () => {
               onChange={(e) => handleChange(e)}
               value={inputs.category}
             >
-              <option value="">Bitte auswählen</option>
+              <option value="">Bitte Kategorie auswählen</option>
               <option value="Gehalt">Gehalt</option>
               <option value="Lotto">Lotto</option>
               <option value="Geschenk">Geschenk</option>
@@ -70,7 +70,7 @@ const AddTransaction = () => {
               onChange={(e) => handleChange(e)}
               value={inputs.transactionType}
             >
-              <option value="">Bitte auswählen</option>
+              <option value="">Ausgabe oder Einnahme auswählen</option>
               <option value="Ausgabe">Ausgabe</option>
               <option value="Einnahme">Einnahme</option>
             </select>

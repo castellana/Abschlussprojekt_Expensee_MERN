@@ -18,11 +18,11 @@ First you will login with your google account to open the app.
 
 
 After login you will see the home page with an overview of all expenses/income sorted by date.
-<img src="frontend/public/images/Seite2.jpg width=300>
+<img src="frontend/public/images/Seite2.jpg" width=300>
 
 
 You can add a new expense or income and write some details like the category (shopping,leisure, food etc), the date of the expense, an small description and the amount:
-<img src="frontend/public/images/Seite3.jpg width=200>
+<img src="frontend/public/images/Seite3.jpg" width=200>
 
 ![](frontend/public/images/Seite4.jpg)
 

@@ -13,7 +13,8 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-First you will login with your google account to open the app.
+First you will login with your google account to open the app: 
+
 <img src="frontend/public/images/Seite1.jpg" width=300>
 
 
